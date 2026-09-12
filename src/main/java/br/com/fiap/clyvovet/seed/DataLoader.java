@@ -18,11 +18,14 @@ public class DataLoader implements CommandLineRunner {
     private final AgendamentoRepository agendamentoRepo;
     private final EventoSaudeRepository eventoRepo;
     private final ProtocoloRepository protocoloRepo;
+    private final UsuarioRepository usuarioRepo;
+    private final org.springframework.security.crypto.password.PasswordEncoder passwordEncoder;
 
     public DataLoader(ClinicaRepository clinicaRepo, VeterinarioRepository vetRepo,
                       TutorRepository tutorRepo, PetRepository petRepo,
                       AgendamentoRepository agendamentoRepo, EventoSaudeRepository eventoRepo,
-                      ProtocoloRepository protocoloRepo) {
+                      ProtocoloRepository protocoloRepo, UsuarioRepository usuarioRepo,
+                      org.springframework.security.crypto.password.PasswordEncoder passwordEncoder) {
         this.clinicaRepo = clinicaRepo;
         this.vetRepo = vetRepo;
         this.tutorRepo = tutorRepo;
@@ -30,10 +33,41 @@ public class DataLoader implements CommandLineRunner {
         this.agendamentoRepo = agendamentoRepo;
         this.eventoRepo = eventoRepo;
         this.protocoloRepo = protocoloRepo;
+        this.usuarioRepo = usuarioRepo;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
     public void run(String... args) {
+        // Inicializa usuarios do Spring Security caso ainda nao existam
+        if (usuarioRepo.count() == 0) {
+            usuarioRepo.save(Usuario.builder()
+                    .nome("Dra. Camila Rocha")
+                    .email("veterinario@clyvo.com")
+                    .senha(passwordEncoder.encode("admin123"))
+                    .role("ROLE_VET")
+                    .ativo(true)
+                    .veterinarioId(1L)
+                    .build());
+
+            usuarioRepo.save(Usuario.builder()
+                    .nome("Leandro Silva")
+                    .email("tutor@clyvo.com")
+                    .senha(passwordEncoder.encode("tutor123"))
+                    .role("ROLE_TUTOR")
+                    .ativo(true)
+                    .tutorId(1L)
+                    .build());
+
+            usuarioRepo.save(Usuario.builder()
+                    .nome("Administrador Clyvo VET")
+                    .email("admin@clyvo.com")
+                    .senha(passwordEncoder.encode("admin123"))
+                    .role("ROLE_ADMIN")
+                    .ativo(true)
+                    .build());
+        }
+
         if (clinicaRepo.count() > 0) return;
 
         var c1 = clinicaRepo.save(Clinica.builder().nome("PetLife Centro").cnpj("11.111.111/0001-01").endereco("Rua Augusta, 500 - SP").telefone("(11)3333-1111").email("contato@petlife.com.br").build());
