@@ -15,8 +15,8 @@
 
 ## 🎥 Demonstração em Vídeo
 
-- **Link do Vídeo Demonstrativo (YouTube):** `[COLE_AQUI_O_LINK_DO_SEU_VIDEO_YOUTUBE]`
-  *(Vídeo demonstrativo com a apresentação técnica da arquitetura, controle de acesso por perfis RBAC, migrações de banco e fluxos clínicos completos)*.
+- **Link do Vídeo no YouTube:** [ASSISTIR DEMONSTRAÇÃO NO YOUTUBE](https://youtu.be/yk9q2y_ON3s?si=mfa_b1cLjt1ysj7K)  
+  *(Apresentação técnica com a demonstração da camada web Thymeleaf, Flyway, Spring Security e fluxos clínicos completos)*.
 
 ---
 
@@ -104,11 +104,4 @@ A aplicação conta com contas pré-configuradas e botões de preenchimento auto
 ## 📱 Compatibilidade com o Aplicativo Mobile
 
 As rotas da API REST (`/api/**`) permanecem totalmente operacionais e compatíveis com a aplicação React Native desenvolvida na Sprint 2, garantindo interoperabilidade entre o aplicativo dos tutores e o portal web administrativo da clínica.
-
----
-
-## 📚 Guia Técnico de Arquitetura
-
-Um guia completo com o detalhamento da arquitetura em camadas, ciclo de vida das requisições e justificativas técnicas da solução está disponível em:
-👉 [`documentos/estudo_avaliacao_oral.md`](documentos/estudo_avaliacao_oral.md)
 
