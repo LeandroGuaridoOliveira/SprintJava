@@ -15,8 +15,7 @@
 
 ## 🎥 Demonstração em Vídeo
 
-- **Link do Vídeo no YouTube:** [ASSISTIR DEMONSTRAÇÃO NO YOUTUBE](https://youtu.be/yk9q2y_ON3s?si=mfa_b1cLjt1ysj7K)  
-  *(Apresentação técnica com a demonstração da camada web Thymeleaf, Flyway, Spring Security e fluxos clínicos completos)*.
+- **Link do Vídeo no YouTube:** [ASSISTIR DEMONSTRAÇÃO NO YOUTUBE](https://youtu.be/yk9q2y_ON3s?si=mfa_b1cLjt1ysj7K) & https://youtu.be/yk9q2y_ON3s?si=mfa_b1cLjt1ysj7K 
 
 ---
 
