@@ -34,12 +34,10 @@
 * **Fala isso:**
   > *"No application.properties, configuramos o Hibernate com ddl-auto=validate. Dessa forma, o JPA apenas valida o esquema e não altera tabelas em tempo de execução. O Flyway é o único responsável pelo versionamento estrutural do banco de dados."*
 
-* **Abre tela:** No navegador, vá para a aba do console H2 (`http://localhost:8080/h2-console`). Clique em **Connect** e rode:
-  ```sql
-  SELECT * FROM FLYWAY_SCHEMA_HISTORY;
-  ```
+* **Abre tela:** No navegador, vá para a aba do console H2 (`http://localhost:8080/h2-console`). Clique em **Connect**.
+* **Ação na tela:** No menu lateral esquerdo, clique direto sobre a tabela **`flyway_schema_history`** (ou digite a consulta com aspas duplas: `SELECT * FROM "flyway_schema_history";`) e clique em **Run**.
 * **Fala isso:**
-  > *"Aqui no console do banco, podemos comprovar a tabela de metadados FLYWAY_SCHEMA_HISTORY com todas as migrações executadas com sucesso, seus checksums e as datas de aplicação."*
+  > *"Aqui no console do banco, podemos comprovar a tabela de metadados do Flyway com todas as migrações executadas com sucesso, seus checksums e as datas de aplicação."*
 
 ---
 
