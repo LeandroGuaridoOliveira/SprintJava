@@ -94,7 +94,7 @@
 
 ## 📌 PARTE 5: Execução Clínica de Atendimento e Prontuário Eletrônico (7:15 - 9:15)
 
-* **Abre código:** `src/main/java/br/com/fiap/clyvovet/service/ExecucaoConsultaService.java` (destaque a anotação `@Transactional` e o método `finalizarConsulta`).
+* **Abre código:** `src/main/java/br/com/fiap/clyvovet/service/ExecucaoConsultaService.java` (mostre as **linhas 47 e 48**, destacando a anotação `@Transactional` e o método `executarAtendimentoClinico`).
 * **Fala isso:**
   > *"Para a realização da consulta médica, implementamos o ExecucaoConsultaService com a anotação @Transactional. Este método executa uma operação atômica coordenada em quatro entidades: atualiza o peso corporal do animal, gera um novo registro permanente no prontuário histórico, sincroniza os protocolos preventivos e altera o status do agendamento para concluído."*
 
