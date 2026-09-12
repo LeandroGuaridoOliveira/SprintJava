@@ -20,15 +20,6 @@
 
 ---
 
-## 🎯 Escopo e Critérios de Avaliação da Sprint 3 (100 Pontos)
-
-| Requisito | Pontos | Status | Detalhamento da Implementação |
-| :--- | :---: | :---: | :--- |
-| **1. Camada de Visualização (Frontend)** | **30 pts** | ✅ Concluído | Desenvolvida com **Thymeleaf**, layouts modulares (`fragments/layout.html`), paleta Clyvo VET (`#0c211b` deep pine green e `#23c483` jade), design responsivo e cards rápidos de credenciais. |
-| **2. Controle de Versão de Banco (Flyway)** | **20 pts** | ✅ Concluído | Migrations versionadas em `src/main/resources/db/migration/`: `V1__create_domain_tables.sql`, `V2__create_security_tables.sql` e `V3__insert_seed_data.sql`. JPA validado estritamente via `ddl-auto=validate`. |
-| **3. Segurança & RBAC (Spring Security)** | **30 pts** | ✅ Concluído | Dois perfis de usuário (`ROLE_VET` e `ROLE_TUTOR`), senhas criptografadas com **BCrypt**, proteção CSRF, tela de login personalizada (`/login`), tela de acesso negado (`/403`) e rotas restritas por perfil. |
-| **4. Funcionalidades Não-CRUD Completas** | **20 pts** | ✅ Concluído | **Fluxo 1**: Triagem e Agendamento Inteligente com Prevenção de Conflito de Horário.<br>**Fluxo 2**: Execução Clínica de Atendimento e Atualização Atômica de Prontuário (`@Transactional`). |
-
 ---
 
 ## 🔐 Credenciais de Acesso (Ambiente de Teste & Avaliação)
