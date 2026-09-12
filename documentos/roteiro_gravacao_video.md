@@ -122,3 +122,73 @@
   > *"Para finalizar, lembramos que todos os endpoints REST da aplicação foram mantidos e documentados com OpenAPI e Swagger, permitindo integração direta com o aplicativo móvel React Native que desenvolvemos anteriormente.*  
   > *Também preparamos um guia técnico detalhado sobre o ciclo de vida das requisições e a arquitetura em camadas no arquivo estudo_avaliacao_oral.md.*  
   > *Muito obrigado a todos pela atenção!"*
+
+---
+
+## 🎥 BÔNUS: Tour Visual do Frontend (Sem Narração — ~2 a 3 Minutos)
+> **Objetivo:** Gravar uma demonstração contínua e dinâmica da interface web, mostrando a fluidez do sistema, a responsividade e todos os fluxos na prática.
+
+### 🎬 Sequência de Ações e Cliques na Tela:
+
+#### 1. Tela de Login (`/login`)
+- Abra o navegador em `http://localhost:8080/login`.
+- Role um pouco a tela para mostrar o formulário centralizado, o tema escuro e os botões de **Acesso Rápido**.
+- Passe o mouse sobre os botões para mostrar o efeito *hover*.
+
+#### 2. Visão do Tutor (`ROLE_TUTOR`)
+- Clique no botão **Leandro Silva (Tutor)** (os campos de e-mail e senha são preenchidos automaticamente).
+- Clique em **Entrar no Sistema**.
+- No Dashboard do Tutor:
+  - Passe o mouse pelo card de boas-vindas e pela tag azul **TUTOR**.
+  - Mostre os cards dos pets vinculados (**Thor** e **Mel**).
+  - Clique no botão **Ver Prontuário Completo →** no card do paciente **Thor**.
+- Na tela de Prontuário (`/pets/1/prontuario`):
+  - Role a página para mostrar os dados biométricos (espécie, raça, idade, peso).
+  - Mostre a linha do tempo com o histórico de consultas e vacinas anteriores.
+  - Mostre o bloco de protocolos preventivos ativos.
+
+#### 3. Triagem e Agendamento Clínico
+- Clique no botão **⚡ Agendar Nova Consulta** no topo da tela (ou vá em **⚡ Novo Agendamento** no menu).
+- No formulário de agendamento (`/fluxos/novo-agendamento`):
+  - Mostre o card lateral direito com as **Regras de Agendamento da Clínica**.
+  - Selecione o Pet: **Thor**.
+  - Selecione o Veterinário: **Dra. Camila Rocha**.
+  - Tipo de Atendimento: **Consulta**.
+  - Nível de Triagem: **Rotina / Preventivo**.
+  - Data e Hora: Escolha uma data futura e horário livre (ex: `16/09/2026` às `14:00`).
+  - Digite na queixa principal: *"Revisão semestral de rotina e aferição de peso."*
+  - Clique em **Processar Triagem e Confirmar Horário**.
+- Você será redirecionado para a lista de agendamentos (`/agendamentos`) com o banner verde de confirmação.
+
+#### 4. Demonstração de Segurança (HTTP 403)
+- Estando ainda com a conta do tutor, clique na barra de endereços do navegador.
+- Digite `http://localhost:8080/atendimentos` e dê **Enter**.
+- A tela de **Acesso Negado (HTTP 403)** será exibida com o aviso de permissão restrita.
+- Clique no botão **← Voltar ao Início**.
+
+#### 5. Visão da Médica Veterinária (`ROLE_VET`)
+- Clique em **Trocar de Usuário** no menu superior.
+- Na tela de login, clique no botão **Dra. Camila Rocha (Veterinária)** e clique em **Entrar no Sistema**.
+- No Dashboard da Veterinária:
+  - Mostre a tag verde **VETERINÁRIO** no menu.
+  - Mostre que o menu agora exibe o botão **🩺 Fila de Consultas**.
+  - Mostre o painel com as próximas consultas da clínica.
+
+#### 6. Execução de Consulta e Prontuário ao Vivo
+- Clique em **🩺 Fila de Consultas** no menu superior (`/atendimentos`).
+- Na tabela de pacientes aguardando, localize a linha do paciente **Thor**.
+- Clique no botão azul **▶ Iniciar Consulta**.
+- Na tela de Atendimento Clínico (`/fluxos/realizar-consulta`):
+  - Destaque que o lado esquerdo tem o formulário médico e o lado direito exibe o histórico clínico prévio do animal.
+  - Altere o campo **Peso Aferido Hoje (kg)** para `34.0`.
+  - No campo **Anamnese & Conduta Clínica**, digite: *"Paciente saudável, pelagem brilhante, frequência cardíaca regular."*
+  - No campo **Prescrição & Orientações**, digite: *"Manter alimentação balanceada e vermifugação atualizada."*
+  - Marque a caixa de seleção: ☑ **Atualizar Protocolo Preventivo Vacinal**.
+  - Clique no botão **Concluir Atendimento & Salvar Prontuário 💾**.
+- Você será redirecionado imediatamente para o Prontuário do Thor:
+  - Destaque o novo peso de **34.0 kg** atualizado na biometria do animal.
+  - Destaque a nova consulta recém-gravada no histórico médico oficial.
+
+#### 7. Encerramento com a Documentação Swagger
+- Abra uma nova aba no navegador e vá em `http://localhost:8080/swagger-ui.html`.
+- Role rapidamente pelos endpoints da API REST (Pets, Agendamentos, Veterinários, Clínicas, etc.) mostrando que tudo está documentado e padronizado.
