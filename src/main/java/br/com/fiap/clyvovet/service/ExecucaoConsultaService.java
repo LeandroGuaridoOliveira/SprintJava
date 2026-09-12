@@ -37,8 +37,8 @@ public class ExecucaoConsultaService {
     }
 
     /**
-     * FLUXO 2: Execução Clínica de Atendimento e Atualização Atômica de Prontuário.
-     * Operação @Transactional abrangendo 4 entidades:
+     * Execução Clínica de Atendimento e Atualização de Prontuário.
+     * Operação @Transactional abrangendo:
      * 1. Atualização do Peso do Pet
      * 2. Criação do EventoSaude (histórico médico oficial)
      * 3. Aplicação/Reforço de protocolo preventivo se solicitado

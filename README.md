@@ -1,4 +1,4 @@
-# Clyvo VET — Aplicação Web & Backend Integrado (Sprint 3)
+# Clyvo VET — Plataforma Web & Backend Clínico
 > **Challenge FIAP 2026** — Solução corporativa para jornada contínua de saúde preventiva e rotina clínica veterinária.
 
 ---
@@ -16,27 +16,25 @@
 ## 🎥 Demonstração em Vídeo
 
 - **Link do Vídeo Demonstrativo (YouTube):** `[COLE_AQUI_O_LINK_DO_SEU_VIDEO_YOUTUBE]`
-  *(Vídeo com duração máxima de 10 minutos demonstrando a arquitetura, autenticação por perfil, controle de acesso e os dois fluxos de negócio completos)*.
+  *(Vídeo demonstrativo com a apresentação técnica da arquitetura, controle de acesso por perfis RBAC, migrações de banco e fluxos clínicos completos)*.
 
 ---
 
----
-
-## 🔐 Credenciais de Acesso (Ambiente de Teste & Avaliação)
+## 🔐 Credenciais de Acesso (Ambiente de Demonstração)
 
 A aplicação conta com contas pré-configuradas e botões de preenchimento automático na própria tela de login:
 
 | Perfil / Role | E-mail de Acesso | Senha | Permissões no Sistema |
 | :--- | :--- | :--- | :--- |
-| **Veterinário** (`ROLE_VET`) | `veterinario@clyvo.com` | `admin123` | Acesso à fila clínica, início e conclusão de atendimentos (Fluxo 2), atualização de prontuários e biometria, catálogo geral de pets. |
-| **Tutor** (`ROLE_TUTOR`) | `tutor@clyvo.com` | `tutor123` | Visualização dos seus próprios animais, solicitação de agendamento com triagem (Fluxo 1), histórico de saúde. **Bloqueado de realizar consultas clínicas (HTTP 403)**. |
+| **Veterinário** (`ROLE_VET`) | `veterinario@clyvo.com` | `admin123` | Acesso à fila clínica, início e conclusão de atendimentos, atualização de prontuários e biometria, catálogo geral de pets. |
+| **Tutor** (`ROLE_TUTOR`) | `tutor@clyvo.com` | `tutor123` | Visualização dos seus próprios animais, solicitação de agendamento com triagem, histórico de saúde. **Bloqueado de realizar consultas clínicas (HTTP 403)**. |
 | **Administrador** (`ROLE_ADMIN`) | `admin@clyvo.com` | `admin123` | Acesso administrativo e supervisão clínica global. |
 
 ---
 
-## ⚡ Detalhamento dos Dois Fluxos de Negócio (Não-CRUD)
+## ⚡ Processos Clínicos Integrados
 
-### 🩺 Fluxo 1: Triagem Clínica & Agendamento Inteligente com Prevenção de Conflitos
+### 🩺 Triagem Clínica & Agendamento Inteligente com Prevenção de Conflitos
 - **Objetivo**: Garantir que as marcações de consulta respeitem a capacidade clínica da equipe e não gerem duplicidade de atendimento (*double-booking*).
 - **Regras de Negócio Implementadas**:
   1. **Prevenção Ativa de Sobreposição**: O sistema verifica no banco de dados se o médico veterinário selecionado já possui consulta confirmada no intervalo de 30 minutos em torno do horário solicitado. Caso haja conflito, recusa a operação com mensagem explicativa.
@@ -45,7 +43,7 @@ A aplicação conta com contas pré-configuradas e botões de preenchimento auto
   4. **Antecedência Mínima**: Exige ao menos 1 hora de antecedência em relação ao momento atual.
   5. **Triagem Sintomatológica**: Classifica a prioridade (Rotina, Urgência Leve, Pós-Operatório) e solicita recomendação de jejum prévio quando necessário.
 
-### 💉 Fluxo 2: Execução Clínica de Atendimento & Atualização Atômica de Prontuário
+### 💉 Execução Clínica de Atendimento & Atualização Atômica de Prontuário
 - **Objetivo**: Operação transacional atômica (`@Transactional`) coordenada pelo médico veterinário que consolida a consulta em um único fluxo de gravação.
 - **Entidades Atualizadas Simultaneamente**:
   1. **`Pet`**: Atualização do peso corporal aferido durante o exame físico.
@@ -109,8 +107,8 @@ As rotas da API REST (`/api/**`) permanecem totalmente operacionais e compatíve
 
 ---
 
-## 📚 Material de Apoio para Avaliação Oral
+## 📚 Guia Técnico de Arquitetura
 
-Um guia completo de estudos com as perguntas mais prováveis da banca avaliadora, explicações linha a linha da arquitetura e justificativa de cada decisão técnica está disponível em:
+Um guia completo com o detalhamento da arquitetura em camadas, ciclo de vida das requisições e justificativas técnicas da solução está disponível em:
 👉 [`documentos/estudo_avaliacao_oral.md`](documentos/estudo_avaliacao_oral.md)
 

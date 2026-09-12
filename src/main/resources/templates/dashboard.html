@@ -21,10 +21,10 @@
 
         <div style="display: flex; gap: 0.75rem;">
             <a th:href="@{/agendamentos/novo}" class="btn btn-primary">
-                <span>⚡</span> Novo Agendamento (Fluxo 1)
+                <span>⚡</span> Novo Agendamento
             </a>
             <a sec:authorize="hasRole('VET')" th:href="@{/atendimentos}" class="btn btn-secondary">
-                <span>🩺</span> Fila de Consultas (Fluxo 2)
+                <span>🩺</span> Fila de Consultas
             </a>
         </div>
     </div>
@@ -55,7 +55,7 @@
         <div class="card">
             <div class="card-header">
                 <h2 class="card-title">
-                    <span>🩺</span> Fila de Atendimentos Clínicos Prontos (Fluxo 2)
+                    <span>🩺</span> Fila de Atendimentos Clínicos Prontos
                 </h2>
                 <a th:href="@{/atendimentos}" class="btn btn-sm btn-secondary">Ver Fila Completa →</a>
             </div>

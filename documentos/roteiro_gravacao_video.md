@@ -1,5 +1,5 @@
-# Roteiro de Gravação em Vídeo — Sprint 3 (Até 10 minutos)
-> **Projeto:** Clyvo VET — Sprint 3 (Aplicação Web Spring Boot, Thymeleaf, Flyway e Spring Security)  
+# Roteiro de Gravação e Demonstração em Vídeo (Até 10 minutos)
+> **Projeto:** Clyvo VET — Plataforma Web (Spring Boot, Thymeleaf, Flyway e Spring Security)  
 > **Integrantes:** Gabriel Costa Solano (RM 562325), Kaiky Pereira Rodrigues Da Silva (RM 564578), Leandro Guarido de Oliveira (RM 561760).
 
 ---
@@ -8,11 +8,11 @@
 
 | Bloco | Assunto | Duração Estimada |
 | :--- | :--- | :---: |
-| **Parte 1** | Apresentação do Grupo e Visão Geral da Sprint 3 | 01:00 min |
+| **Parte 1** | Apresentação do Grupo e Visão Geral da Plataforma | 01:00 min |
 | **Parte 2** | Flyway Migrations e Banco de Dados Versionado | 02:00 min |
 | **Parte 3** | Spring Security: Login, Perfis (ROLE_VET vs ROLE_TUTOR) e RBAC | 02:30 min |
-| **Parte 4** | Fluxo 1: Triagem Clínica & Prevenção de Conflito de Horário | 02:00 min |
-| **Parte 5** | Fluxo 2: Execução Clínica & Atualização Atômica de Prontuário | 01:45 min |
+| **Parte 4** | Triagem Clínica & Prevenção de Conflito de Horário | 02:00 min |
+| **Parte 5** | Execução Clínica & Atualização Atômica de Prontuário | 01:45 min |
 | **Parte 6** | Interoperabilidade Mobile & Conclusão | 00:45 min |
 | **TOTAL** | — | **~10 minutos** |
 
@@ -21,10 +21,10 @@
 ## 🎬 Roteiro Passo a Passo (O que falar e o que mostrar)
 
 ### 📌 PARTE 1: Apresentação e Introdução (0:00 - 1:00)
-* **O que mostrar na tela:** Abrir o arquivo `README.md` no VS Code ou navegador com a tabela de integrantes e escopo da Sprint 3.
+* **O que mostrar na tela:** Abrir o arquivo `README.md` no VS Code ou navegador com a tabela de integrantes e escopo do projeto.
 * **O que falar:**
   > *"Olá, professor e avaliadores! Nós somos o grupo responsável pelo desenvolvimento do ecossistema Clyvo VET no Challenge FIAP 2026, composto por Gabriel Costa Solano, Kaiky Pereira e Leandro Guarido.*  
-  > *Nesta Sprint 3, evoluímos a aplicação Java Spring Boot para uma plataforma web completa com foco em quatro grandes pilares: Camada de visualização com Thymeleaf, versionamento de banco com Flyway, controle de acesso e autenticação com Spring Security e a implementação de dois fluxos completos de negócio não-CRUD. Vamos demonstrar cada um desses requisitos funcionando na prática."*
+  > *Nesta etapa do projeto, evoluímos a aplicação Java Spring Boot para uma plataforma web clínica completa com foco em quatro grandes pilares: Camada de visualização com Thymeleaf, versionamento de banco com Flyway, controle de acesso e autenticação com Spring Security e a implementação de fluxos completos de negócio para a rotina clínica. Vamos demonstrar cada uma dessas soluções funcionando na prática."*
 
 ---
 
@@ -35,7 +35,7 @@
   3. Abrir o `application.properties` e destacar `spring.jpa.hibernate.ddl-auto=validate`.
   4. Abrir no navegador a URL `http://localhost:8080/h2-console`, logar e mostrar a tabela `FLYWAY_SCHEMA_HISTORY` com os registros executados com sucesso.
 * **O que falar:**
-  > *"Começando pelo requisito de banco de dados, implementamos o controle estrito de versões com o Flyway. Criamos três migrações versionadas e imutáveis:*  
+  > *"Começando pela infraestrutura de banco de dados, implementamos o controle estrito de versões com o Flyway. Criamos três migrações versionadas e imutáveis:*  
   > *A V1 cria todas as 7 tabelas de domínio com constraints e chaves estrangeiras; a V2 cria a tabela t_clyvo_usuario para o Spring Security; e a V3 popula os dados essenciais de clínicas, veterinários, pets e agendamentos.*  
   > *No application.properties, configuramos o Hibernate com ddl-auto=validate. Isso assegura que o JPA não altere tabelas em tempo de execução, garantindo que o Flyway seja a única fonte de verdade da infraestrutura de banco de dados, como manda o padrão de mercado."*
 
@@ -47,11 +47,11 @@
   2. No navegador, acessar `http://localhost:8080/login`.
   3. Mostrar os botões rápidos de preenchimento de teste.
   4. **Logar como Tutor:** Clicar em `tutor@clyvo.com` / `tutor123`.
-     - Mostrar o dashboard do tutor com "Meus Animais" e a tag azul `TUTOR`.
-     - Tentar digitar na barra de endereços `http://localhost:8080/atendimentos`.
-     - Mostrar a tela de **Acesso Negado (HTTP 403)** personalizada explicando o bloqueio de perfil!
+      - Mostrar o dashboard do tutor com "Meus Animais" e a tag azul `TUTOR`.
+      - Tentar digitar na barra de endereços `http://localhost:8080/atendimentos`.
+      - Mostrar a tela de **Acesso Negado (HTTP 403)** personalizada explicando o bloqueio de perfil!
   5. Clicar em "Trocar de Usuário", fazer logout e **logar como Veterinário:** `veterinario@clyvo.com` / `admin123`.
-     - Mostrar que o veterinário possui a tag verde `VETERINÁRIO` e tem acesso liberado à rota `/atendimentos` (Fila Clínica).
+      - Mostrar que o veterinário possui a tag verde `VETERINÁRIO` e tem acesso liberado à rota `/atendimentos` (Fila Clínica).
 * **O que falar:**
   > *"No quesito segurança, implementamos o padrão RBAC com autenticação baseada em banco de dados usando BCryptPasswordEncoder.*  
   > *Temos dois tipos de usuário principais: o Veterinário (ROLE_VET) e o Tutor (ROLE_TUTOR).*  
@@ -60,7 +60,7 @@
 
 ---
 
-### 📌 PARTE 4: Fluxo 1 — Triagem Clínica & Prevenção de Conflito de Horário (5:30 - 7:30)
+### 📌 PARTE 4: Triagem Clínica & Prevenção de Conflito de Horário (5:30 - 7:30)
 * **O que mostrar na tela:**
   1. Clicar em "⚡ Triagem & Agendar" (`/agendamentos/novo`).
   2. Mostrar o formulário com dados do pet, veterinário, modalidade, nível de triagem e data/hora.
@@ -75,13 +75,13 @@
      - Submeter novamente.
      - Mostrar o redirecionamento para `/agendamentos` com o banner de sucesso e a nova consulta no status `CONFIRMADO`.
 * **O que falar:**
-  > *"Agora demonstrando o primeiro fluxo de negócio completo, que vai muito além de um CRUD: o motor de Triagem e Agendamento Inteligente.*  
+  > *"Agora demonstrando o processo de Triagem e Agendamento Inteligente:*  
   > *Ele valida regras comerciais: impede agendamentos fora do horário das 8h às 18h, bloqueia domingos e executa uma query JPQL que previne sobreposição de agenda médica (double-booking).*  
   > *Tentamos marcar exatamente no horário que a Dra. Camila já tinha consulta, e o sistema recusou a operação com mensagem amigável. Ao ajustar para um horário livre, o agendamento foi processado e confirmado com sucesso."*
 
 ---
 
-### 📌 PARTE 5: Fluxo 2 — Execução de Consulta & Atualização Atômica de Prontuário (7:30 - 9:15)
+### 📌 PARTE 5: Execução de Consulta & Atualização Atômica de Prontuário (7:30 - 9:15)
 * **O que mostrar na tela:**
   1. Como veterinário, ir em "🩺 Fila Clínica" (`/atendimentos`).
   2. Clicar em "▶ Iniciar Consulta" no agendamento do paciente Thor.
@@ -98,7 +98,7 @@
      - Mostrar a nova linha inserida no histórico médico oficial (`EventoSaude`).
      - Mostrar que o status do agendamento passou para `CONCLUIDO`.
 * **O que falar:**
-  > *"O nosso segundo fluxo completo é a Execução Clínica de Atendimento. No ExecucaoConsultaService, anotamos o método com @Transactional para garantir consistência ACID em quatro entidades ao mesmo tempo:*  
+  > *"Na sequência, apresentamos a Execução Clínica de Atendimento. No ExecucaoConsultaService, anotamos o método com @Transactional para garantir consistência ACID em quatro entidades ao mesmo tempo:*  
   > *Ele atualiza o peso corporal do animal, gera um registro permanente na tabela t_clyvo_evento_saude com a conduta e diagnóstico, valida os protocolos preventivos da espécie e conclui o agendamento.*  
   > *Ao finalizar, somos direcionados para o prontuário eletrônico completo do pet, onde vemos o histórico de saúde atualizado em tempo real."*
 
@@ -111,5 +111,5 @@
   3. Mostrar o arquivo `documentos/estudo_avaliacao_oral.md` criado para a avaliação presencial.
 * **O que falar:**
   > *"Para encerrar, destacamos que todos os endpoints da API REST foram preservados com suporte a CORS e documentação Swagger, garantindo 100% de integração com o aplicativo mobile React Native da Sprint 2.*  
-  > *Preparamos também uma documentação detalhada de estudo para a avaliação oral em sala.*  
-  > *Com isso, cobrimos com êxito todos os 100 pontos da Sprint 3. Muito obrigado!"*
+  > *Preparamos também uma documentação detalhada de estudo para a avaliação em sala.*  
+  > *Com isso, cobrimos com êxito todas as funcionalidades e padrões da plataforma Clyvo VET. Muito obrigado!"*

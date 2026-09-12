@@ -51,7 +51,7 @@ public class AtendimentoWebController {
     }
 
     /**
-     * FLUXO 2: Inicia o atendimento clínico de um agendamento específico
+     * Inicia o atendimento clínico de um agendamento específico
      */
     @GetMapping("/{id}/iniciar")
     public String iniciarAtendimento(@PathVariable("id") Long id, Model model, RedirectAttributes redirectAttributes) {
@@ -88,7 +88,7 @@ public class AtendimentoWebController {
     }
 
     /**
-     * FLUXO 2: Conclusão atômica da consulta, registro de histórico e atualização de prontuário
+     * Conclusão atômica da consulta, registro de histórico e atualização de prontuário
      */
     @PostMapping("/finalizar")
     public String finalizarAtendimento(

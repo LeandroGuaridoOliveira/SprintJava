@@ -19,7 +19,7 @@
         </div>
 
         <a th:href="@{/agendamentos/novo}" class="btn btn-primary">
-            <span>⚡</span> Novo Agendamento com Triagem (Fluxo 1)
+            <span>⚡</span> Novo Agendamento
         </a>
     </div>
 
@@ -67,7 +67,7 @@
                                    th:if="${ag.status != 'CONCLUIDO' and ag.status != 'CANCELADO'}"
                                    th:href="@{'/atendimentos/' + ${ag.id} + '/iniciar'}" 
                                    class="btn btn-sm btn-primary" title="Iniciar Consulta Clínica">
-                                    ▶ Atender (Fluxo 2)
+                                    ▶ Atender
                                 </a>
 
                                 <!-- Botão de Cancelar -->

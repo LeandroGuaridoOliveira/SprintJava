@@ -67,7 +67,7 @@ public class AgendamentoWebController {
     }
 
     /**
-     * FLUXO 1: Exibição do Formulário de Triagem e Agendamento Inteligente
+     * Exibição do Formulário de Triagem e Agendamento Clínico
      */
     @GetMapping("/novo")
     public String formularioNovoAgendamento(Authentication authentication, Model model) {
@@ -100,7 +100,7 @@ public class AgendamentoWebController {
     }
 
     /**
-     * FLUXO 1: Submissão e processamento das regras de negócio de agendamento e conflito
+     * Processamento das regras de negócio de agendamento, validação e verificação de conflitos de agenda
      */
     @PostMapping("/solicitar")
     public String solicitarAgendamento(

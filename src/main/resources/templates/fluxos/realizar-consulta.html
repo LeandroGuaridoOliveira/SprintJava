@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="~{fragments/layout :: head('Execução de Consulta Clínica (Fluxo 2)')}"></head>
+<head th:replace="~{fragments/layout :: head('Atendimento Clínico')}"></head>
 <body>
 
 <header th:replace="~{fragments/layout :: navbar}"></header>
@@ -13,10 +13,10 @@
             ← Voltar para a fila de atendimentos
         </a>
         <h1 style="font-size: 1.75rem; font-weight: 800; color: #ffffff; margin-top: 0.5rem;">
-            🩺 Fluxo 2: Execução Clínica de Atendimento e Atualização Atômica de Prontuário
+            🩺 Atendimento Clínico & Atualização de Prontuário
         </h1>
         <p style="color: var(--text-muted); margin-top: 0.25rem;">
-            Operação clínica transacional (@Transactional) que atualiza simultaneamente a biometria do animal, gera histórico médico oficial e conclui o agendamento.
+            Registro clínico de consulta com atualização da biometria do animal, histórico médico e encerramento do agendamento.
         </p>
     </div>
 

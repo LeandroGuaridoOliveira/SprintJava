@@ -31,8 +31,8 @@ public class TriagemAgendamentoService {
     }
 
     /**
-     * FLUXO 1: Processamento de Triagem e Agendamento Inteligente com Verificação de Conflito de Horário.
-     * Implementa validações de negócio avançadas que vão além de um CRUD convencional.
+     * Processamento de Triagem e Agendamento com Verificação de Conflito de Horário.
+     * Implementa validações de horário de funcionamento e prevenção de sobreposição na agenda médica.
      */
     @Transactional
     public Agendamento processarTriagemEAgendamento(SolicitacaoAgendamentoDTO dto) {

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head th:replace="~{fragments/layout :: head('Triagem e Agendamento (Fluxo 1)')}"></head>
+<head th:replace="~{fragments/layout :: head('Triagem e Agendamento')}"></head>
 <body>
 
 <header th:replace="~{fragments/layout :: navbar}"></header>
@@ -13,10 +13,10 @@
             ← Voltar para a lista de agendamentos
         </a>
         <h1 style="font-size: 1.75rem; font-weight: 800; color: #ffffff; margin-top: 0.5rem;">
-            ⚡ Fluxo 1: Triagem Clínica & Agendamento Inteligente
+            ⚡ Triagem Clínica & Agendamento
         </h1>
         <p style="color: var(--text-muted); margin-top: 0.25rem;">
-            Motor de regras de agendamento com validação de horários de funcionamento e prevenção ativa de conflitos na agenda médica.
+            Agendamento com validação de horários de funcionamento e prevenção ativa de conflitos na agenda médica.
         </p>
     </div>
 
@@ -119,7 +119,7 @@
         <div>
             <div class="card" style="border-left: 4px solid var(--primary);">
                 <h3 style="font-size: 1.1rem; color: #fff; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
-                    <span>🛡️</span> Regras de Negócio Validadas pelo Fluxo 1
+                    <span>🛡️</span> Regras de Agendamento da Clínica
                 </h3>
                 <ul style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; padding-left: 1.25rem;">
                     <li><strong>Prevenção de Sobreposição (Double-Booking)</strong>: O sistema verifica na base de dados se o veterinário selecionado já possui consulta ativa no intervalo de 30 minutos em torno da hora marcada.</li>

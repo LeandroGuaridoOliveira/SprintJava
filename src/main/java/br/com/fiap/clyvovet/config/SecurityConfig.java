@@ -63,10 +63,10 @@ public class SecurityConfig {
                 // Autenticação e páginas públicas
                 .requestMatchers("/login", "/403", "/erro").permitAll()
                 
-                // FLUXO 2: Execução de Consultas Clínicas e Prontuário Médico (Exclusivo para Veterinários)
+                // Atendimento clínico e evolução de prontuário médico (Exclusivo para Veterinários)
                 .requestMatchers("/atendimentos/**", "/fluxo/consulta/**").hasRole("VET")
                 
-                // FLUXO 1: Triagem e Solicitação de Agendamento (Tutores e Veterinários)
+                // Triagem clínica e solicitação de consultas (Tutores e Veterinários)
                 .requestMatchers("/agendamentos/novo", "/fluxo/agendamento/**").hasAnyRole("TUTOR", "VET")
                 
                 // Dashboard e áreas internas autenticadas
